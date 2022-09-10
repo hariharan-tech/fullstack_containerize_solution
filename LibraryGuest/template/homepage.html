@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block customstyle %}
+    <style>
+        h1{
+            margin:2rem 0;
+        }
+        .col-sm-6{
+            margin:2rem 0;
+        }
+    </style>
+{% endblock customstyle %}
+{% block body %}
+    <h1>Welcome to Library Homepage</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">View All Books</h5>
+                <p class="card-text">View all the books listed on our library!</p>
+                <a href="/guest/viewbooks" class="btn btn-primary">View Books <i class="bi bi-arrow-up-right-circle"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Reserve a book</h5>
+                <p class="card-text">The guest user can reserve a book at our library here!</p>
+                <a href="/guest/reserve" class="btn btn-outline-dark">Reserve a book <i class="bi bi-bag-check"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">View Reservations</h5>
+                <p class="card-text">The guest user can view their library book reservations!</p>
+                <a href="/guest/viewreservations" class="btn btn-success">View Reservations <i class="bi bi-bookmark-check"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Cancel Reservations</h5>
+                <p class="card-text">The guest user can Cancel their library book reservations!</p>
+                <a href="/guest/cancelreservation" class="btn btn-outline-danger ">Cancel a Book Reservation <i class="bi bi-x-circle-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock body %}

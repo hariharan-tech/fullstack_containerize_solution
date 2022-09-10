@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+    Cancel Reservation
+{% endblock title %}
+{% block customstyle %}
+    
+{% endblock customstyle %}
+{% block body %}
+    <h1>Cancel a book Reservation</h1>
+    <div class="container">
+        <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="email_id">User Email ID: </label>
+          <input type="email" class="form-control" id="mail_id" name="mail_id" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="phno_user">Phone Number: (excluding +91)</label>
+            <input type="number" class="form-control" id="phno" name="phno" placeholder="Enter Phone number">
+          </div>
+        <br>
+        <div class="form-group">
+            <label for="reserv_id">Reservation ID: </label>
+            <input type="number" class="form-control" id="resver_id" name="resver_id" placeholder="Enter your reservation ID">
+          </div>
+        <br>
+        <button type="submit" class="btn btn-outline-danger">Cancel Reservation <i class="bi bi-cart-dash"></i></button>
+      </form>
+    </div>
+    <script>
+        var baseUrl = (window.location).href; // You can also use document.URL
+        if (baseUrl.includes("=")){
+          if(baseUrl.split("?").length>1){
+            contents = baseUrl.split("?")[1].split("&");
+            document.getElementById("resver_id").value = contents[0].split("=")[1];
+            document.getElementById("phno").value = contents[1].split("=")[1];
+            document.getElementById("mail_id").value = contents[2].split("=")[1];
+          }
+        }
+        document.getElementById("canres").classList.add("active")
+    </script>  
+{% endblock body %}

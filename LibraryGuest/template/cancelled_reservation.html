@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+    Reservation Cancelled
+{% endblock title %}
+
+{% block body %}
+<div id="true">
+    <h1>Reservation Cancelled!</h1>
+    <br><br>
+    <div class="container">
+    <h2>Cancelled Reservation ID: <span id="reser_id"></span> </h2>
+    <a href="/guest/viewreservations/">View Reservation Status here!</a>
+    </div>
+</div>
+<div id="false">
+    <h1>Invalid Request for Reservation Cancellation!</h1>
+    <a href="/guest/cancelreservation/">Cancel Reservation here!</a>
+</div>
+    <script>
+        var baseUrl = (window.location).href; // You can also use document.URL
+        if (baseUrl.includes("=")){
+        document.getElementById("false").style.display = "none";
+          if(baseUrl.split("?").length>1){
+            contents = baseUrl.split("?")[1];
+            document.getElementById("reser_id").innerText = contents.split("=")[1];
+          }
+        }
+        else{
+            document.getElementById("true").style.display = "none";
+        }
+    </script>
+{% endblock body %}

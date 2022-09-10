@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+  Reservation Success
+{% endblock title %}
+{% block customstyle %}{% endblock customstyle %}
+{% block body %}
+    <div id="true">
+        <h1>Success on your book reservation!</h1>
+        <br><br>
+        <div class="container">
+        <h2>Your reservation ID: <span id="reser_id"></span> </h2>
+        </div>
+          <br><br>
+        <a href="/guest/viewreservations/">Check out the Reservation tokens here!</a>
+    </div>
+    <div id="false">
+        <h1>Invalid Request for Book Reservation!</h1>
+        <a href="/guest/reserve/">Reserve Books here!</a>
+    </div>
+      <script>
+        var baseUrl = (window.location).href; // You can also use document.URL
+        if (baseUrl.includes("=")){
+        document.getElementById("false").style.display = "none";
+          if(baseUrl.split("?").length>1){
+            contents = baseUrl.split("?")[1];
+            document.getElementById("reser_id").innerText = contents.split("=")[1];
+          }
+        }
+        else{
+            document.getElementById("true").style.display = "none";
+        }
+      </script>
+{% endblock body %}
